@@ -29,11 +29,8 @@
                 var displayArray = [];
                 var optionSelection = document.getElementById("sel");
                 var displayedValue = document.getElementById("myDiv");
-                optionSelection.addEventListener("change", function () {
-                    const selectedText = optionSelection.options[optionSelection.selectedIndex];
-                    displayArray.push(selectedText.text);
-                    displayElements();
-                });
+
+                optionSelection.addEventListener("change", addItem);
 
                 function displayElements() {
                     let displayString = "";
@@ -49,12 +46,21 @@
                     let displayedElements = document.querySelectorAll(".displayed-element");
                     for (let element of displayedElements) {
                         element.addEventListener("click", function () {
-                            let index = this.dataset.index;
-                            displayArray.splice(index, 1);
-                            displayElements();
+                            return deleteItem(this.dataset.index)
                         });
                     }
                 }
+
+                function addItem() {
+                    const selectedText = optionSelection.options[optionSelection.selectedIndex];
+                    displayArray.push(selectedText.text);
+                    displayElements();
+                }
+
+                function deleteItem(index) {
+                    displayArray.splice(index, 1);
+                    displayElements();
+                };
             </script>
         </div>
     </div>
