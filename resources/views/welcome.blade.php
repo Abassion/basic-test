@@ -41,8 +41,11 @@
                         let element = displayArray[i];
                         displayString += `<span class="displayed-element" data-index="${i}">  ${element} </span>`;
                     }
-
                     displayedValue.innerHTML = displayString;
+                    addDeleteListeners();
+                }
+
+                function addDeleteListeners() {
                     let displayedElements = document.querySelectorAll(".displayed-element");
                     for (let element of displayedElements) {
                         element.addEventListener("click", function () {
