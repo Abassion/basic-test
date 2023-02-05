@@ -32,6 +32,7 @@
 
                 optionSelection.addEventListener("change", addItem);
 
+
                 function displayElements() {
                     let displayString = "";
                     for (let i = 0; i < displayArray.length; i++) {
